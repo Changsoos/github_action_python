@@ -15,12 +15,13 @@ runs:
     with:
       python-version: '3.10'
       -name: Install dependencies
-      run: pop onstrall -r requirements.txt
+      run: pip install -r requirements.txt
+      shell: bash
       -name: pass inputs to shell
       run:
       echo "INPUT_NUM=${{inputs.num}}" >> $GUTHUB_ENV 
       shell: bash
-      -name: fetch the number' square
+      -name: fetch the number's square
       id: get-square
       run: python src/get_num_square.py
       shell: bash
